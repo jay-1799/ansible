@@ -1,0 +1,8 @@
+---
+- host: localhost
+  become: true
+
+  tasks:
+    - name: Shutdown instances
+      ansible.builtin.command: /sbin/shutdown -t now
+      when: ansible_facts['os_family'] =="Debian"
